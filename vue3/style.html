@@ -16,22 +16,24 @@
 
 <body>
   <!-- :class="{activated: isActivated}" -->
+  <!-- :class="[activated, activatedOne]" -->
 
   <div id="app">
-    <div @click="handleDivClick"
-    :class="[activated]"
-    >Hello style</div>
+    <div @click="handleDivClick" >Hello style</div>
   </div>
 
   <script>
     var vm = new Vue({
       el: '#app',
       data: {
+        activated: '',
+        activatedOne: 'activated-one',
         isActivated: false,
       },
       methods: {
         handleDivClick: function () {
-          this.isActivated = !this.isActivated
+          // this.isActivated = !this.isActivated
+          this.activated = this.activated === 'activated' ? '' : "activated"
         }
       }
     })
