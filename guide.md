@@ -42,3 +42,28 @@ new Vue({
 })
 
 2-7 组件间传值
+简写：v-bind:index => :index
+this.$emit('delete', params)
+/vue2-todolist/index2.html
+
+2-8 summary
+vueje.org/v2/guide -> 介绍
+
+3-1 vue 实例
+组件 => 实例
+vm.$el => $ => 实例的属性或实例的方法
+
+3-2 vue 实例 生命周期钩子
+beforeCreate 
+vm.text = 123
+beforeUpdate
+lifecycle
+
+学习 -> api -> 生命周期钩子： activated deactivated errorCaptured
+
+3-3 vue 模版语法
+v-text
+v-html = "js 表达式"
+
+3-4 计算属性 & 侦听器
+计算属性，内置缓存，依赖 变量没有发生改变时候不会进行计算，提升性能; 依赖值发生改变，进行计算
