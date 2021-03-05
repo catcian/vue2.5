@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>computed-setter-getter</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{fullName}}
+  </div>
+
+  <script>
+    // vm.fullName = 'cat wang'
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        firstName: 'Cat',
+        lastName: 'Cian'
+      },
+      computed: {
+        // fullName: function () {
+        //   return this.firstName + ' ' + this.lastName
+        // }
+        fullName: {
+          get: function () {
+            return this.firstName + ' ' + this.lastName
+          },
+          set: function (value) {
+            console.log(value)
+            var arr = value.split(' ')// 空格打散
+            this.firstName = arr[0]
+            this.lastName = arr[1]
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
