@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作用域插槽</title>
+  <script src="./vue.js"></script>
+</head>
+<body>
+  
+  <div id="root">
+    <child>
+      <!-- template 必须开头结尾 -->
+      <template slot-scope="props"> 
+        <!-- 模板 -->
+        <h1>{{ props.item }} -- Hello ~</h1>
+      </template>
+    </child>
+  </div>
+
+  <script>
+// child 组件 可能很多地方调用
+// 在不同地方调用，列表循环由外部组件渲染
+// <li v-for="item of list">{{ item }}</li>
+// 
+    Vue.component('child', {
+      data: function () {
+        return {
+          list: [1,2,3,4]
+        }
+      },
+      template: `<div>
+                  Child
+                  <ul>
+                    <slot v-for="item of list" :item=item></slot> 
+                  </ul>        
+                </div>`
+    })
+    var vm = new Vue({
+      el: '#root'
+    })
+  </script>
+</body>
+</html>

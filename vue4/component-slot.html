@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue使用slot</title>
+  <script src="./vue.js"></script>
+</head>
+<body>
+  
+  <div id="root">
+    <!-- <child content="<p>Cat</p>"></child> -->
+    <body-content>
+      <!-- <p>CatCian</p> -->
+      <!-- 具名插槽 -->
+      <!-- <div class="header" slot="header">header</div> -->
+      <div class="footer" slot="footer">footer</div>
+    </body-content>
+  </div>
+
+  <script>
+
+    Vue.component('body-content',{
+      props:{
+        content: String
+      },
+      // template: '<div><p>Hello</p><div v-html="this.content"></div></div>'
+      // <slot>默认内容</slot>
+      template: `<div>
+                  <slot name="header">default header</slot>
+                  <div class="content">body-content</div>
+                  <slot name="footer">default footer</slot>
+                </div>`
+    })
+    var vm = new Vue({
+      el: '#root'
+    })
+  </script>
+</body>
+</html>

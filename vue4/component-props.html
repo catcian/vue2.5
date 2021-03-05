@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件参数校验与非props特性</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <!-- :content="1" -->
+
+    <child 
+      content="hell"
+    ></child>
+    <!-- props特性：父组件调用子组件 通过属性（content）向子组件传值，恰好子组件声明了对父组件传递过的接收(props.content) -->
+    <!-- 
+      props 特点：
+      1. 不会在 dom 标签上显示
+      1. 子组件 可以通过差值表达式，或者this.props 引用
+     -->
+     <!-- 非props特性：
+      子组件没有声明对父组件声明的内容
+      1. 子组件无法获得该内容，无法使用
+      2. 非props 特性实际会展示在子组件最外侧 dom 标签上
+    -->
+  </div>
+
+  <script>
+
+    Vue.component('child', {
+      // props: ['content'],
+      // 组件参数校验
+      // 子组件接收的参数必须是字符串
+      // 子组件接收的参数要么是数字，要么是字符串
+      // 
+      // props: {
+      //   content: [Number, String]
+      // },
+      // props: {
+      //   content: {
+      //     type: String,
+      //     required: false,
+      //     default: 'default value'
+      //   }
+      // },
+      // 自定义校验器
+      props: {
+        content: {
+          type:String,
+          validator: function(value){
+            return value.length > 5
+          }
+        }
+      },
+      template: '<div>Child {{ content }}</div>'
+    })
+    var vm = new Vue({
+      el: '#root'
+    })
+  </script>
+</body>
+
+</html>
