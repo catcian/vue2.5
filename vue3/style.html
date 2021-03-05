@@ -17,23 +17,23 @@
 <body>
   <!-- :class="{activated: isActivated}" -->
   <!-- :class="[activated, activatedOne]" -->
+  <!-- :style="styleObj" -->
 
   <div id="app">
-    <div @click="handleDivClick" >Hello style</div>
+    <div :style="[styleObj, {fontSize: '20px'}]" @click="handleDivClick">Hello style</div>
   </div>
 
   <script>
     var vm = new Vue({
       el: '#app',
       data: {
-        activated: '',
-        activatedOne: 'activated-one',
-        isActivated: false,
+        styleObj: {
+          color: 'black'
+        }
       },
       methods: {
-        handleDivClick: function () {
-          // this.isActivated = !this.isActivated
-          this.activated = this.activated === 'activated' ? '' : "activated"
+        handleDivClick: function(){
+          this.styleObj.color = this.styleObj.color === 'red' ? 'black' : 'red'
         }
       }
     })
