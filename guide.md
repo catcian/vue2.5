@@ -74,3 +74,9 @@ v-html = "js 表达式"
 1. class 对象绑定
 1. class 数组绑定 [变量, 变量2]
 1. :style 对象/数组绑定
+
+3-7 vue 条件渲染
+v-if
+v-else-if
+v-else
+vuejs.org/v2/guide -> 条件渲染

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue条件渲染</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- key 值 切换 input 内容清空，唯一元素key 不一样，vue就不会尝试复用标签 -->
+    <div v-if="show">
+      邮箱名：<input type="text" key="username">
+    </div>
+    <div v-else>
+      用户名：<input type="text" key="password">
+    </div>
+
+    <!-- <div v-if="show === 'a'" data-test="v-if">This is A</div>
+    <div v-else-if="show === 'b'" data-test="v-if">This is B</div>
+    <div v-else data-test="v-if">This is others</div> -->
+    <!-- <div v-if="show" data-test="v-if">{{ message }}</div> -->
+    <!-- <div v-show="show" data-test="v-show">{{ message }}</div> -->
+    <!-- v-show display:none -->
+  </div>
+
+
+  <script>
+    // vm.show = true
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        show: false,
+        // message: 'hello v-if'
+      }
+    })
+  </script>
+</body>
+
+</html>
