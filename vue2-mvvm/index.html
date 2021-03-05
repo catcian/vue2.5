@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>todolist</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" name="" id="" v-model="inputValue">
+    <button v-on:click="handleBtnClick">提交</button>
+    <ul>
+      <li v-for="item in list">{{ item }}</li>
+    </ul>
+  </div>
+
+  <script>
+    // MVVM
+    // Model 层
+    // View -> html
+    // VM 层 -> vue
+    var app = new Vue({
+      el: '#app',
+      data: {
+        list: ['第一课的内容', '第二课的内容', '123'],
+        inputValue: '',
+      },
+      methods: {
+        handleBtnClick: function () {
+          this.list.push(this.inputValue)
+          this.inputValue = ''
+          // alert('click')
+          // console.log(this) // this -> app
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>

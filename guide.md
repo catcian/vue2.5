@@ -18,3 +18,27 @@ www.todolist.cn
 v-for
 v-on:click
 v-model 数据双向绑定 app.$data.inputValue = '321'
+
+2-4 mvvm 模式
+lagency mvp
+
+mvvm presenter -> ViewModel 
+
+vue2.x 
+vue 如何知道数据改变？如何改变视图？源码
+1. ES5 Object.defineProperty()
+1. virtual dom
+
+2-5 组件化
+组件 -> 区域
+
+2-6 组件化 todolist
+/vue2-todolist/index2.html
+全局组件：
+Vue.component({})
+局部组件
+new Vue({
+  components: {TodoItem}
+})
+
+2-7 组件间传值
