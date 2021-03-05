@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue事件绑定</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    <!-- v-on:click -->
+    <!--  handleClick handleClick() -> e = undefined => handleClick($event) -->
+    <!-- 传递事件对象，同时传递其他参数 -->
+    <!-- <button @click="handleClick($event, 1, 2, 3)">Button</button> -->
+
+    <!-- 事件修饰符 -->
+    <!-- 阻止表单的默认行为，禁止跳转 -->
+    <!-- @click.prevent == @click="handleFormClick"-->
+    <!-- <form action="/abc" @click.prevent>
+      <input type="submit" />
+    </form> -->
+    <!-- @click.stop 阻止事件向外冒泡 -->
+
+    <!-- @click.self 要求只有在触发事件e.target = 绑定事件e.currentTarget的时候才会执行 -->
+    <!-- <div @click.self="handleStopClick">
+      nice
+      <div>hello world</div>
+    </div> -->
+
+    <!-- once 只绑定一次 -->
+    <!-- <div @click.once="handleStopClick">
+      <div>hello once</div>
+    </div> -->
+
+    <!-- capture 捕获 事件绑定不是遵循事件冒泡。而是从外部到内部-->
+    <!-- <div @click.capture="handleCaptureClick">
+      <div @click.capture="handleClickInner">hello once</div>
+    </div> -->
+
+    <!-- 按键修饰符 -->
+    <!-- 回撤时候 .enter  .delet .esc-->
+    <!-- <input @keydown.enter="handleKeyDown"> -->
+
+    <!-- 系统修饰符 ctrl alt meta shift 同时按住-->
+    <!-- <input @keydown.ctrl="handleKeyDown"> -->
+
+    <!-- 鼠标按键修饰符 -->
+    <!-- 监听鼠标右键 left middle right -->
+    <div @click.right="handleClick">click</div>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      methods: {
+        handleClick: function (e, one, two, three) {
+          console.log(e, one, two, three)
+        },
+        handleFormClick: function (e) {
+          e.preventDefault()
+        },
+        handleStopClick: function () {
+          console.log(123)
+        },
+        handleCaptureClick: function () {
+          alert('outer')
+        },
+        handleClickInner: function () {
+          alert('inner')
+        },
+        handleKeyDown: function (e) {
+          console.log(e.target.value)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

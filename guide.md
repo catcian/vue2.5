@@ -80,3 +80,47 @@ v-if
 v-else-if
 v-else
 vuejs.org/v2/guide -> 条件渲染
+
+3-8 vue 列表渲染
+v-for
+数组渲染、对象渲染
+
+3-9 vue set方法`
+
+set 向对象注入数据 全局方法：
+Vue.set(vm.userInfo, 'address', 'beijing')
+实例方法：
+vm.$set(vm.userInfo, 'address', 'beijing')
+
+数组
+vm.userInfo[1] = 5 => error
+Vue.set(vm.userInfo, 1, 5)
+vm.$set(vm.userInfo, 1, 5)
+
+3-10 vue 事件处理
+
+3-11 vue 表单绑定
+v-model :
+input type=text
+input type=checkbox
+textarea
+input type=radio
+select - option
+
+v-model修饰符
+.lazy
+.number
+.trim
+
+3-12 summary
+
+实例 -> 组件
+模版语法 -> v-if v-text
+计算属性 -> computed
+样式 -> 对象形式 数组形式
+条件渲染 -> v-if v-else-if v-else\ template模板站位符
+列表渲染 -> v-for 数组、对象
+事件处理 -> 事件绑定 v-on = @、事件修饰符 prevent stop catch
+表单绑定 -> select textarea
+
+4-1 

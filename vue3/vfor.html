@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue列表渲染</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- index 索引下标 -->
+    <!-- :key 使用 唯一、尽量避免 index -->
+    <!-- 修改数组 不能用下标方式修改数组 vm.list[5] = {id: '005', text: 'list[5]'} -->
+    <!-- 数组 pop push shift unshift splice sort reverse -->
+    <!-- template 模版占位符 -->
+    <!-- <template v-for="(item, index) of list"
+    :key="item.id">
+      <div>
+        {{ item.text }} -- {{ index }}
+      </div>
+      <span>
+        {{ item.text }}
+      </span>
+    </template>   -->
+
+    <!-- 对象循环 -->
+    <div v-for="(item, key, index) of userInfo">
+      {{ index }} -- {{ key }} -- {{ item }}
+    </div>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        // list: [
+        //   'hello',
+        //   'cat',
+        //   'nice',
+        //   'to',
+        //   'meet',
+        //   'you'
+        // ]
+        // list: [{
+        //   id: '010120201',
+        //   text: 'hello'
+        // },{
+        //   id: '010120202',
+        //   text: 'cat'
+        // },{
+        //   id: '010120204',
+        //   text: 'nice'
+        // },{
+        //   id: '010120203',
+        //   text: 'you'
+        // },]
+        userInfo: {
+          name: 'CatCian',
+          age: 29,
+          gender: 'male',
+          salary: 'secret'
+        }
+      }
+    })
+
+    // 数组提供方法
+    // vm.list.splice(1, 1, {id: "333", text: '333'})
+
+    // 改变引用
+    // vm.list = [{
+    //       id: '010120201',
+    //       text: 'hello'
+    //     },{
+    //       id: '010120202',
+    //       text: 'cat3333'
+    //     },{
+    //       id: '010120204',
+    //       text: 'nice'
+    //     },{
+    //       id: '010120203',
+    //       text: 'you'
+    //     }]
+
+
+    // vm.userInfo.name = 'wang chen'
+
+    // add item 修改引用
+    // vm.userInfo.address = 'beijing' -> error
+    vm.userInfo = {
+          name: 'CatCian',
+          age: 29,
+          gender: 'male',
+          salary: 'secret',
+          address: 'beijing'
+        }
+  </script>
+</body>
+
+</html>
