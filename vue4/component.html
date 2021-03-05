@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使用组件的细节点</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    <!-- 1. is 标签解决小bug -->
+    <!-- <table>
+      <tbody> -->
+        <!-- 每项 => 组件  -->
+        <!-- <tr><td>1</td></tr>
+        <tr><td>2</td></tr>
+        <tr><td>3</td></tr> -->
+        <!-- <tr is="row"></tr>
+        <tr is="row"></tr>
+        <tr is="row"></tr> -->
+<!-- 2. 自组件 定义 data 必须函数 -->
+        <!-- <tr is="row"></tr>
+        <tr is="row"></tr>
+        <tr is="row"></tr>
+
+      </tbody>
+    </table> -->
+    <!-- 
+    <ul>
+      <li is="row"></li>
+    </ul>
+    <select name="" id="">
+      <option value="" is=""></option>
+    </select> -->
+
+
+    <!-- 3 ref 获取 dom -->
+    <!-- <div ref="hello" @click="handleClick">hello world</div> -->
+    <!-- ref 组件 组件的引用 -->
+    <counter ref="counter1" @change="handleChange"></counter>
+    <counter ref="counter2" @change="handleChange"></counter>
+    <div>counter1 + counter2 = {{ total }} </div>
+  </div>
+
+  <script>
+
+Vue.component('counter', {
+  template: '<div @click="handleCountClick"> {{ number }} </div>',
+  data: function(){
+    return {
+      number: 0
+    }
+  },
+  methods: {
+    handleCountClick:function(){
+      this.number++
+      // 子自组件发布事件
+      this.$emit('change')
+    }
+  }
+})
+
+    // 非根组件 
+    // 全局组件
+    // Vue.component('row', {
+    //   data: function () {
+    //     return {
+    //       content: 'this is a row'
+    //     }
+    //   },
+    //   template: '<tr><td>{{ content }}</td></tr>'
+    // })
+    // table row 同级 => vue is 属性
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        total: 0
+      },
+      methods: {
+        handleClick: function() {
+          // alert('click')
+          // vue 实例 所有引用 的hello
+          console.log(this.$refs.hello)// dom
+
+        },
+        handleChange: function (){
+          // console.log(this.$refs.counter1)
+          // console.log(this.$refs.counter2)
+          // console.log('change')
+          this.total = this.$refs.counter1.number + this.$refs.counter2.number
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

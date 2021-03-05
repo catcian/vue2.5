@@ -123,4 +123,9 @@ v-model修饰符
 事件处理 -> 事件绑定 v-on = @、事件修饰符 prevent stop catch
 表单绑定 -> select textarea
 
-4-1 
+4-1 组件使用的细节
+1. is 标签解决小bug 
+2. 自组件 定义 data 必须函数
+3. ref 获取 dom
+
+4-2 父子组件数据传递
