@@ -312,3 +312,10 @@ delte pages/list
 styles var mixmin
 npm install stylus@0.54.5 --save
 npm install stylus-loader@3.0.1 --save
+
+7-2 iconfont & 代码优化
+src/assets/styles/iconfont/svgttf woff eot .iconfont.css
+src/assets/styles/iconfont
+1. 使用iconfont
+1. webpack 配置 css 路径简化
+1. stylus 定义变量
