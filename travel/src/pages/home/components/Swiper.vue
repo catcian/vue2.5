@@ -2,11 +2,8 @@
   <div class="wrapper">
     <swiper :options="swiperOption">
       <!-- slides -->
-      <swiper-slide>
-        <img class="swiper-img" src="http://img1.qunarzz.com/sight/p0/1602/92/920e47352552c1c990.water.jpg_350x240_06106a40.jpg" alt="">
-      </swiper-slide>
-      <swiper-slide>
-        <img class="swiper-img" src="http://img1.qunarzz.com/sight/p0/1412/61/415f2f6c128f635cc218eb2d0faf5066.water.jpg_350x240_66c16bc1.jpg" alt="">
+      <swiper-slide v-for="item of swiperList" :key="item.id">
+        <img class="swiper-img" :src="item.imgUrl">
       </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination"  slot="pagination"></div>
@@ -21,8 +18,18 @@ export default {
   data () {
     return {
       swiperOption: {
-        pagination: '.swiper-pagination'
-      }
+        pagination: '.swiper-pagination',
+        loop: true
+      },
+      swiperList: [
+        {
+          id: '0001',
+          imgUrl: 'http://img1.qunarzz.com/sight/p0/1602/92/920e47352552c1c990.water.jpg_350x240_06106a40.jpg'
+        }, {
+          id: '0002',
+          imgUrl: 'http://img1.qunarzz.com/sight/p0/1412/61/415f2f6c128f635cc218eb2d0faf5066.water.jpg_350x240_66c16bc1.jpg'
+        }
+      ]
     }
   }
 }
