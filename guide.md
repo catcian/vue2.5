@@ -85,7 +85,7 @@ vuejs.org/v2/guide -> 条件渲染
 v-for
 数组渲染、对象渲染
 
-3-9 vue set方法`
+3-9 vue set方法
 
 set 向对象注入数据 全局方法：
 Vue.set(vm.userInfo, 'address', 'beijing')
@@ -163,3 +163,60 @@ vue4/dynamic-component-vonce.html
 
 4-9 summary
 vue 组件基础、深入了解组件
+
+5-1 vue css 动画原理 过渡动画效果 transition
+part5/animation.html
+<transition name="fade">
+  // 动态组件
+</transition>
+class
+隐藏 -> 显示
++ fade-enter动画执行前 /fade-enter-active
+- fade-enter | + fade-enter-to
+- fade-enter-active/fade-enter-to
+
+显示 -> 隐藏
++ fade-leave/fade-leave-active
+- fade-leave | + fade-leave-to
+- fade-leave-to/ fade-leave-active
+
+5-2 vue animate.css 库
+part5/animate.html
+<link rel="stylesheet" type="text/css" href="./animate.css">
+
+自定义样式
+enter-active-class="animated swing"
+leave-active-class="animated shake"
+animate version3.5.2
+http://daneden.me/animate
+
+5-3 vue 使用过渡 & 动画
+part5/transition-transform.html
+
+5-4 vue js动画 velocityjs
+@before-enter="handleBeforeEnter"
+@enter="handleEnter"
+@after-enter="handleAfterEnter"
+@before-leave=
+@leave
+@after-leave
+http://velocityjs.org/#duration
+complete
+
+5-5 vue 多个元素组件的过渡
+part5/more0component-transition.html
+1. 多个元素过渡效果 元素 key 
+1. 动态组件 <component :is="type"></component>
+
+5-6 vue 列表过渡
+<transition-group>...</transition-group>
+
+5-7 vue 动画封装
+part5/encapsulation.html
+
+5-8 summary
+v2/guide/ 过渡/动画
+1. 动态过渡
+1. 状态过渡 tweenjs
+
+6-1

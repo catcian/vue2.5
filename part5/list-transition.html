@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue列表过渡</title>
+  <script src="./vue.js"></script>
+  <style>
+    .v-enter,
+    .v-leave {
+      opacity: 0;
+    }
+
+    .v-enter-active,
+    v-leave-active {
+      transition: opacity 1s;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <transition-group>
+      <div v-for="(item, index of list" :key="item.id">
+        {{ item.title }}
+      </div>
+    </transition-group>
+
+    <!-- transition-group -> 多个transition -->
+    <transition>
+      <div>hello world</div>
+    </transition>
+    <transition>
+      <div>hello world</div>
+    </transition>
+    <transition>
+      <div>hello world</div>
+    </transition>
+    <button @click="handleBtnClick">Add</button>
+  </div>
+
+  <script>
+    // 计数器
+    var count = 0
+
+    var vm = new Vue({
+      el: '#root',
+      data: {
+        list: []
+      },
+      methods: {
+        handleBtnClick: function () {
+          this.list.push({
+            id: count++,
+            title: 'hello world'
+          })
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

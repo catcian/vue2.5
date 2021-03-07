@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js & velocity</title>
+  <script src="./vue.js"></script>
+  <script src="./velocity.min.js"></script>
+</head>
+<body>
+  <!-- 
+    @before-leave=
+    @leave
+    @after-leave
+   -->
+  <div id="root">
+    <transition
+      name="fade"
+      @before-enter="handleBeforeEnter"
+      @enter="handleEnter"
+      @after-enter="handleAfterEnter"
+  >
+    <div v-show="show">Hello Velocity</div>
+  </transition>
+
+  <button @click="handleClick">toggle</button>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#root',
+      data: {
+        show: true
+      },
+      methods: {
+        handleClick: function(){
+          this.show = !this.show
+        },
+        handleBeforeEnter: function(el) {
+          // 隐藏 -> 显示
+          // console.log('beforeEnter', el)
+          // el.style.color = 'red'
+          el.style.opacity = 0
+        },
+        handleEnter: function(el, done){
+          // console.log('enter', el)
+          // setTimeout(() => {
+          //   el.style.color = 'green'
+          //   // handleEnter done 非常重要 执行结束 手动调用 done() 执行完成
+          // }, 2000)
+          // setTimeout(() => {
+          //   done()
+          // }, 4000)
+          Velocity(el, { opacity: 1}, { duration: 1000, complete: done })
+
+        },
+        handleAfterEnter: function(el){
+          // el.style.color = 'black'
+          console.log('动画结束')
+        }
+      }
+    })
+  </script>
+</body>
+</html>
