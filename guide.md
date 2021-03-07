@@ -265,3 +265,26 @@ npm install
 
 vuecli2.x vuecli3.x 共用
 npm install -g @vue/cli-init
+
+6-3 项目介绍
+
+6-4 单文件组件 & vue 路由
+.vue 单文件组件 ===
+vue.conponent('abc', {
+
+})
+
+路由：根据网站不同，返回不同内容给用户
+
+6-5 单页应用 & 多页应用
+network -> doc 
+
+多页：页面跳转， 返回HTML
+1. 首屏时间块，搜索引擎优化的seo效果好
+1. 切面切换慢
+
+单页：页面跳转，doc不返回HTML，JS渲染
+1. 页面切换快
+1. 首屏时间稍慢，seo差 解决（解决方案服务器渲染）
+
+6-6 项目代码初始化
