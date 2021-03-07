@@ -288,3 +288,21 @@ network -> doc
 1. 首屏时间稍慢，seo差 解决（解决方案服务器渲染）
 
 6-6 项目代码初始化
+移动端：vieport meta 标签
+<meta name="viewport" content="minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+重置页面样式表：assets/styles/reset.css
+main.js import './assets/styles/reset.css
+
+1px 边框问题：import './assets/styles/border.css
+border: 1px solid green
+二倍屏：多倍屏 引入文件
+
+300ms 点击延迟
+某些机型，click事件会延迟 300ms 执行
+npm install fastclick@1.0.6 --save
+main.js import fastClick from 'fastclick'
+fastclick.attach(document.body)
+
+iconfont 
+delte pages/list
