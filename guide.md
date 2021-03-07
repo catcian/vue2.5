@@ -333,4 +333,4 @@ vue-awesome-swiper@2.6.7 --save
 piao.qunar.com/touch
 
 7-4 vue 图标页面布局
-index-icons
+1. 创建 index-icons
