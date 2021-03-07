@@ -325,6 +325,12 @@ src/assets/styles/iconfont
 git pull -> github 新分支拉下来
 git checkout index-swiper -> 切换分支
 git status -> 查看分支
+git checkout master -> 切换到主分支
+主分支：git merge orgin/index-swiper
+主分支：git push
 
 vue-awesome-swiper@2.6.7 --save
 piao.qunar.com/touch
+
+7-4 vue 图标页面布局
+index-icons
