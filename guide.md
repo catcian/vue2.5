@@ -219,4 +219,49 @@ v2/guide/ 过渡/动画
 1. 动态过渡
 1. 状态过渡 tweenjs
 
-6-1
+6-1 vue 项目 环境配置 travel 
+1. nodejs lts 8.9.4 -> node -v -> v7.10.1 npm -v -> 5.5.1
+1. gitee.com git云仓库
+个人主页 —> private -> 创建私有仓库 -> travel /MIT License
+1. git --version  v2.10.1
+gitee.com 
+设置 -> ssh 公钥 ->
+生产公钥/似钥
+ssh-keygen -t rsa -C 'wangchn86@163.com'
+查看公钥内容
+cat ~/.ssh/id_rsa.pub
+粘贴页面
+1. 下载gitee.com 本地 SSH
+git clone git ....git
+1. 创建 vue 项目/ 安装 vue-cli
+npm install --global vue-cli
+vue init webpack Travel
+Project name
+exists y
+vue-cli 2.8.2
+name travel
+description 
+author chen.wang
+Runtime +
+install vue-router y
+eslint y
+standart
+unit test n
+e2e n
+use npm 
+
+运行
+npm run dev
+
+git status 
+git add .
+git commit -m "project initial'
+git push 
+
+6-2 cli.vuejs.org/zh
+国内淘宝镜像
+developer.aliyun.com/mirror/NPM
+npm install 
+
+vuecli2.x vuecli3.x 共用
+npm install -g @vue/cli-init
