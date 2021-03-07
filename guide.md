@@ -319,3 +319,12 @@ src/assets/styles/iconfont
 1. 使用iconfont
 1. webpack 配置 css 路径简化
 1. stylus 定义变量
+
+7-3 首页轮播图
+1. 创建分支 index-swiper
+git pull -> github 新分支拉下来
+git checkout index-swiper -> 切换分支
+git status -> 查看分支
+
+vue-awesome-swiper@2.6.7 --save
+piao.qunar.com/touch
