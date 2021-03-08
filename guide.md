@@ -334,3 +334,10 @@ piao.qunar.com/touch
 
 7-4 vue 图标页面布局
 1. 创建 index-icons
+
+7-4 图片区域逻辑
+1. 只有两个图标时，拖动只能上侧可以拖动，下侧没有内容，无法拖动
+1. computed 计算属性完成 第9个图标
+1. vue-devtool @4.1.3 科学上网 打开shadowsocks 全局模式
+1. 根据数据项不同自动构建轮播图
+1. item 文字过多，省略 stylus 封装 mixins.styl/ellipsis
