@@ -429,3 +429,10 @@ computed: {
     ['A','B','C' ]
   }
 }
+
+8-7 列表性能优化 perfomance
+1. this.$refs['A'][0]
+handleTouchMove
+const startY = this.$refs['A'][0].offsetTop 
+总是固定值
+1. 函数截流 timer
