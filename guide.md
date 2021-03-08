@@ -409,3 +409,23 @@ iscroll 封装
 city/components/Alphabet.vue
 
 8-5 城市页面 动态渲染
+/static/mock/city.json
+
+8-6 城市页面 兄弟组件数据传递
+字母组件：上下滑动时候，是第几个字母？
+思路：
+1. 首先获得 A 距离到顶部的高度
+1. 然后滑动时候，在看下当前手指位置距离顶部的高度
+1. 做一个差值，可以得到当前位置和 A 顶部的一个距离，在除以每个字母的高度，就知道当前是第几个字母。
+
+根据下标找到对应的字母，需要一个数组。存储字母的列表 
+computed: {
+  letters() {
+    const letters = []
+    for (let i in this.cities ){
+      letters.push(i)
+    }
+    return letters
+    ['A','B','C' ]
+  }
+}
