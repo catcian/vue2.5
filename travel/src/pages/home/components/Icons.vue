@@ -108,38 +108,40 @@ export default {
     height: 0
     padding-bottom: 50% // 宽度的 50%
     // background: green
-  .icon
-    position relative // 针对子级 icon-img
-    overflow: hidden
-    float: left
-    width: 25%
-    padding-bottom: 25% // 针对宽度 25%
-    // background: red
-    height:0 // 针对子元素 icon-img 设置 后返现宽高不相等
-    .icon-img
-      position absolute // 父级没有relative 相对于 html 根元素 absolute
-      top:0
-      left:0
-      right:0
-      bottom:.44rem
-      box-sizing: border-box // 针对图片间隙
-      padding: .1rem // 针对图片间隙
-      // background: blue
-      .icon-img-content // 图标太大
-        display:block// 图片剧中 -> 块级元素
-        margin: 0 auto// 图片剧中
-        height: 100% // 针对父元素 icon-img 高度
-    .icon-desc
-      position absolute
-      left:0
-      right:0
-      bottom:0
-      height: .44rem
-      line-height: .44rem
-      text-align: center// 文字左右剧中
-      color: $darkTextColor
-      ellipsis()
-      // overflow: hidden // 文字过多优化
-      // white-space: nowrap// 文字过多优化
-      // text-overflow: ellipsis// 文字过多优化
+  .icons
+    margin-top: .1rem
+    .icon
+      position relative // 针对子级 icon-img
+      overflow: hidden
+      float: left
+      width: 25%
+      padding-bottom: 25% // 针对宽度 25%
+      // background: red
+      height:0 // 针对子元素 icon-img 设置 后返现宽高不相等
+      .icon-img
+        position absolute // 父级没有relative 相对于 html 根元素 absolute
+        top:0
+        left:0
+        right:0
+        bottom:.44rem
+        box-sizing: border-box // 针对图片间隙
+        padding: .1rem // 针对图片间隙
+        // background: blue
+        .icon-img-content // 图标太大
+          display:block// 图片剧中 -> 块级元素
+          margin: 0 auto// 图片剧中
+          height: 100% // 针对父元素 icon-img 高度
+      .icon-desc
+        position absolute
+        left:0
+        right:0
+        bottom:0
+        height: .44rem
+        line-height: .44rem
+        text-align: center// 文字左右剧中
+        color: $darkTextColor
+        ellipsis()
+        // overflow: hidden // 文字过多优化
+        // white-space: nowrap// 文字过多优化
+        // text-overflow: ellipsis// 文字过多优化
 </style>
