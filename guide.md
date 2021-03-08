@@ -381,3 +381,11 @@ proxyTable: {
 },
 
 7-9 首页父子组件传值
+Swiper.vue
+<swiper :options="swiperOption" v-if="list.length">
+或
+computed: {
+  showSwiper () {
+    return this.list.length
+  }
+}
