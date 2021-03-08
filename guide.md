@@ -343,3 +343,12 @@ piao.qunar.com/touch
 1. item 文字过多，省略 stylus 封装 mixins.styl/ellipsis
 
 7-6 热销推荐组件 index-recommond
+home/component/Recommend.vue
+父级 flex: 1；min-width:0
+子级 ellipsis() 无效果撑开
+
+7-7 周末去哪组件
+Weekend.vue
+swiper  
+  slot
+/swiper
