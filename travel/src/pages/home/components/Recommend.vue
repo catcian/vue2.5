@@ -50,7 +50,6 @@ export default {
           title: '龙脉温泉',
           desc: '亚洲唯一飞行式过山车等你来挑战'
         }
-        
       ]
     }
   }
@@ -62,7 +61,6 @@ export default {
 <style lang="stylus" scoped>
   @import '~styles/mixins.styl';
   .title
-    margin-top: .2rem
     line-height: .8rem
     background: #eee
     text-indent: .2rem

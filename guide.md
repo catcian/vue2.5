@@ -352,3 +352,32 @@ Weekend.vue
 swiper  
   slot
 /swiper
+
+7-8 axios index-ajax 分支
+git checkout . -> 去除本次更改
+vue-resource -> 最早
+fetch
+axios -> 推荐 浏览器SHR Nodehttp
+axios@0.17.1 --save
+
+index-ajax -> git merge index-recommend
+
+Home.vue 发生 ajax 推荐
+http://localhost:8080/static/mock/index.json
+只有 static 目录下能够被访问
+mounted
+
+axios.get('/static/mock/index.json') 
+axios.get('/api/index.json') 
+开发环境上线环境地址处理：proxy 
+/config/index.js
+proxyTable: {
+  '/api': {
+    target: 'http://localhost:8080',
+    pathRewrite: {
+      '^/api': '/static/mock/'
+    }
+  }
+},
+
+7-9 首页父子组件传值
