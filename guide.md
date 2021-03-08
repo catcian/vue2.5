@@ -399,3 +399,11 @@ city/components/Search.vue
 
 8-3 城市列表
 区块滚动
+
+8-4 BetterScroll 字母表
+city/components/List.vue
+npm install better-scroll@1.8.1 --save
+iscroll 封装
+效果，按住鼠标往下拖动，
+
+city/components/Alphabet.vue
