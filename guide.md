@@ -389,3 +389,6 @@ computed: {
     return this.list.length
   }
 }
+
+8-1 城市选择页 - 路由配置
+city-router

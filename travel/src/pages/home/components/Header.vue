@@ -7,11 +7,13 @@
       <span class="iconfont">&#xe63c;</span>
       输入城市/景点/游玩主题
       </div>
-    <div class="header-right">
-      <!-- 城市 -->
-      {{ this.city }}
-      <span class="iconfont arrow-icon">&#xe65c;</span>
-    </div>
+    <router-link to="/city">
+      <div class="header-right">
+        <!-- 城市 -->
+        {{ this.city }}
+        <span class="iconfont arrow-icon">&#xe65c;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -24,7 +26,6 @@ export default {
 }
 
 // 1rem = html font-size = 50px
-
 // Ui 86px 二倍图 应该写出 43px -> 多少 rem ? 1/50 = x/43 x = .86rem
 // 为什么设置font-size = 50px 正好 是86/100=.86rem
 
@@ -36,7 +37,7 @@ export default {
   @import '~styles/varibles.styl';
   .header
     display: flex
-    line-height: .86rem
+    line-height: $headerHeight
     background: $bgColor
     color: #fff
     .header-left
@@ -59,6 +60,7 @@ export default {
       width: 1.24rem
       float: right
       text-align: center
+      color: #fff
       .arrow-icon
         margin-left: -.04rem
         font-size: .38rem
