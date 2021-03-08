@@ -392,3 +392,8 @@ computed: {
 
 8-1 城市选择页 - 路由配置
 city-router
+city/City.vue
+
+8-2 城市 搜索框
+city/components/Search.vue
+
