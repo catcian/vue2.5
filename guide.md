@@ -436,3 +436,38 @@ handleTouchMove
 const startY = this.$refs['A'][0].offsetTop 
 总是固定值
 1. 函数截流 timer
+
+8-8 vue 搜索逻辑
+所搜城市和拼音
+Search.vue
+1. v-mode keyword 
+1. watch 监听 keyword 改变
+1. 截流函数 timer
+if(value.spell.indexOf(this.keyword) > -1 ||
+value.name.indexOf(this.keyword) > -1) {
+  result.push(value)
+}
+1. 优化逻辑
+div search-content ref=''search
+  background #eee
+li class search-item boder-bottom :key item.id
+line-height: .62rem
+padding-left: .2rem
+background: #fff
+color# 666
+
+1. 滚动
+import Bscroll from 'better-scroll'
+mounted () {
+  this.scroll = new Bscroll(this.$refs.search)
+}
+
+取消后，清除 list if (!this.keyword) {this.list = [] ; return }
+
+1. 很长没有匹配时候
+li class search-item border-bottom 没有找到匹配数据 v-show !list.length
+城市列表显示 div class search-content v-show keyword
+
+1. v-show !this.list.length -> computed: {hasNoData() {return !this.list.length}}
+
+

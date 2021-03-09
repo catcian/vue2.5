@@ -33,7 +33,6 @@ export default {
       this.$emit('change', e.target.innerText)
     },
     handleTouchStart () {
-      console.log('touchstart')
       this.touchStatus = true
     },
     handleTouchMove (touchEvent) {
@@ -49,7 +48,6 @@ export default {
       }
     },
     handleTouchEnd () {
-      console.log('touchent')
       this.touchStatus = false
     }
   },
