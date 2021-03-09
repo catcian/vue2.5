@@ -62,7 +62,9 @@ export default {
     ...mapMutations(['changeCity'])
   },
   mounted () {
-    this.scroll = new Bscroll(this.$refs.wrapper)
+    this.scroll = new Bscroll(this.$refs.wrapper, {
+      click: true
+    })
   },
   computed: {
     ...mapState(['city'])
@@ -74,6 +76,9 @@ export default {
         this.scroll.scrollToElement(element)
       }
     }
+  },
+  activated () {
+    this.scroll.refresh()
   }
 }
 

@@ -603,7 +603,7 @@ computed: {
 
 module 
 
-8-1 使用 keep-alive 优化网页性能
+8-11 使用 keep-alive 优化网页性能
 打开 networkd -> xhr
 1. 每次路由发生切换，ajax 都会发送
 1. 在桂林，显示桂林，在北京重新加载北京的内容
@@ -633,3 +633,14 @@ activated () { 页面重新显示钩子
   if (this.lastCity !== this.city) this.getHomeInfo() this.lastCity = this.city
   console.log('activated')
 }
+
+8-12 fasclick 原生解决 300ms tap delay, gone away
+https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away
+html {
+  touch-action: manipulation
+}
+Alphabet 截流 8ms
+
+new Bscroll(this.$refs.wrapper, {
+  click: true
+})
