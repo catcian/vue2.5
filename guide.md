@@ -470,4 +470,135 @@ li class search-item border-bottom 没有找到匹配数据 v-show !list.length
 
 1. v-show !this.list.length -> computed: {hasNoData() {return !this.list.length}}
 
+8-9 vuex 实现数据共享
+点击城市区域-》首页城市变换
+没有共用的父子组件的，数据通信
 
+cn.vuejs.org/v2/guide -》 生态系统 -》 vuex
+state： 数据
+action： 异步操作
+mutation： 同步操作
+
+dispath -> action
+commit -> mutation
+npm install vuex@3.0.1 --save
+
+src/store/index.js
+import Vue from 'vue'
+import Vuex from 'vuex
+
+Vue.use(Vuex)
+
+export default new Vuex.stroe({
+  state: {
+    city: '北京',
+  },
+  actions: {
+    changeCity (ctx, city) {
+      ctx.commit('changeCity', city)
+    }
+  },
+  mutations: {
+    changeCity (state, city) {
+      state.citye = city
+    }
+  }
+})
+
+main.js 
+import store from './store'
+
+new Vue({
+  ...
+  store
+  ..
+})
+
+Home.vue/ Search.vue
+delete data.city
+div {{ this.$store.state.city}} /div
+
+City/List.vue
+div {{ this.$store.state.city }}
+
+.class button-wrapper @click=handleCityClick(tiem.name)
+/item border-bottom @click=handleCityClick(item.name)
+
+methods: {
+  handleCityClick (name) {
+    //this.$store.dispatch('changeCity', name)
+    //this.$store.commit('changeCity', name)
+  }
+}
+
+点击城市：返回到首页 编程式导航
+1. a 
+1. widown.location.href
+router-link
+js router.push
+Search.vue/List.vue
+this.$router.push('/')
+
+8-10 vuex 高级使用 localStorage
+刷新城市恢复
+state: {
+  city: localStorage.city || '深圳'
+}
+changeCity() {
+  try {
+  localStorage.city = city
+  } catch (e) {}
+}
+
+localStorage 需要 try catch
+因为某些浏览器如果用户关闭本地存储，或者隐身模式，浏览器可能直接抛出异常
+
+let defaultCity = '深圳
+try {
+  if (localStorage.city) {
+    defaultCity = localStorage.city
+  }
+} catch (e) {}
+
+mkdir store/state.js
+export default {
+  city
+}
+
+store/index.js 
+import state from './state
+import mutations from './mutations
+exrpot default nex Vuex.Store({
+  state,
+  mutations
+})
+
+Header.vue 样式修正
+.header-right
+  min-width 1.04rem
+  padding 0 .1rem
+
+home/Header.vue / City/List.vue
+this.$store.state.city 优化 this.city
+import { mapState, mapMutations } from 'vuex'
+computed: {
+  ...mapState(['city'])
+  ...mapState({
+    currentCity: 'city'
+  })
+}
+methods: {
+  ...mapMutations(['changeCity])
+  handleCityClick () { this.changeCity(city) }
+}
+
+getters: {
+  doubleCity (state) {
+    return state.city + ' ' + state.city
+  }
+}
+computed: {
+  ...mapGetters(['doubleCity])
+}
+
+module 

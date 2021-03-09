@@ -8,7 +8,7 @@
             <div
               class="button"
               @click="handleBackClick"
-            >{{ this.$store.state.city }}</div>
+            >{{ city }}</div>
           </div>
         </div>
       </div>
@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import Bscroll from 'better-scroll'
 
 export default {
@@ -52,15 +53,19 @@ export default {
   },
   methods: {
     handleCityClick (city) {
-      this.$store.commit('changeCity', city)
+      this.changeCity(city)
       this.handleBackClick()
     },
     handleBackClick () {
       this.$router.push('/')
-    }
+    },
+    ...mapMutations(['changeCity'])
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs.wrapper)
+  },
+  computed: {
+    ...mapState(['city'])
   },
   watch: {
     letter () {
