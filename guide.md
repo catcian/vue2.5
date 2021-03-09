@@ -602,3 +602,34 @@ computed: {
 }
 
 module 
+
+8-1 使用 keep-alive 优化网页性能
+打开 networkd -> xhr
+1. 每次路由发生切换，ajax 都会发送
+1. 在桂林，显示桂林，在北京重新加载北京的内容
+
+App.vue
+<keep-alive> 路由的内容被加载过一次之后，就把路由中的内容放到内存中，下次不会重新执行钩子函数，只需从内存中获取
+  <router-view/>
+</keep-alive>
+
+Home.vue
+data: {
+  return {
+    lastCity: ''
+  }
+}
+axios.get('/api/index.json?city=' + this.city) -> 
+
+mounted () {
+  this.lastCity = this.city
+}
+computed: {
+  ,,,mapState(['city'])
+}
+
+activated () { 页面重新显示钩子
+  判段当前 和上次是否相同，不相同发ajax
+  if (this.lastCity !== this.city) this.getHomeInfo() this.lastCity = this.city
+  console.log('activated')
+}
