@@ -786,3 +786,91 @@ swiper4 www.swiper.com.cn/3
     .swiper-pagnation
       color: #fff
       bottom: -1rem
+
+9-3 详情页面 Header 渐隐渐显
+/pages/detail/components/Header.vue
+name:DetailHeader
+
+div
+  div.header-abs  div -> router-link tag=div to="/' v-show showAbs
+    span.iconfont.header-abs-back <
+  /div
+  div.header-fixed v-show !showAbs :style="opacityStyle
+    router-link to='/'
+      div.iconfont header-fixed-back /div
+    /router-link
+  /div
+/div
+
+data () {
+  return {
+    showAbs: true,
+    opacityStyle: {
+    opacity: 0
+    }
+  }
+},
+methods: {
+  handlScroll () {
+    const top  = document.documentElement.scrollTop
+    if (top > >) {
+      let opacity = top /140
+      opacity = opacity > 1 ? 1 : opacity
+      tgus.opacityStyle = {
+        opacity
+      }
+      this.showAbs = false
+    } else {
+      this.showAbs = true
+    }
+    console.log(documentElement.scrollTop)
+  }
+}
+activated () {
+  window.addEventListener('scroll',this.handlScroll)
+}
+
+@import '~styles/varibles.styl';
+.header-abs
+  position absolute
+  left.2rem
+  top.2rem
+  width .8rem
+  height .8rem
+  line-height .8rem
+  boder-radius .4
+  background rgba(0,0,0,.8)
+  text-center center
+  .header-abs-back
+    color#fff
+    font=size .4rem
+  .header city -> header-fixed
+  .header
+  position: fixed
+  //overflow: hidden
+  top 0
+  left 0
+  right 0
+  height: $headerHeight
+  line-height: $headerHeight
+  text-align: center
+  color: #fff
+  background: $bgColor
+  font-size: .32rem
+  .header-fixed-back
+    position: absolute
+    top: 0
+    left: 0
+    width: .64rem
+    text-align: center
+    font-size: .5rem
+    color: #fff
+
+Detail.vue
+import DetailHeader from './components/Header
+detail-banner
+detail-header /detail-header
+div.content /div
+
+.content: 
+  height:50rem
