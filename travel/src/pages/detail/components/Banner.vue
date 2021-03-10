@@ -1,19 +1,42 @@
 <template>
-  <div class="banner">
-    <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1601/f2/f2425c4c4488f76390.water.jpg_600x330_3a0cec65.jpg" alt="">
-    <div class="banner-info">
-      <div class="banner-title">深圳野生动物园</div>
-      <div class="banner-number">
-        <span class="iconfont banner-icon">&#xe7b3;</span>
-        39
+  <div>
+    <div class="banner" @click="handleBannerClick">
+      <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1601/f2/f2425c4c4488f76390.water.jpg_600x330_3a0cec65.jpg" alt="">
+      <div class="banner-info">
+        <div class="banner-title">深圳野生动物园</div>
+        <div class="banner-number">
+          <span class="iconfont banner-icon">&#xe7b3;</span>
+          39
+        </div>
       </div>
     </div>
+    <common-gallary :imgs="imgs" @close="handleGallaryClose" v-show="showGallary"></common-gallary>
   </div>
 </template>
 
 <script>
+import CommonGallary from 'common/gallary/Gallary'
+
 export default {
-  name: 'Banner'
+  name: 'Banner',
+  components: {
+    CommonGallary
+  },
+  data () {
+    return {
+      showGallary: false,
+      imgs: ['http://img1.qunarzz.com/sight/p0/1601/52/52016b825c6145b690.water.jpg_r_800x800_be5eeddc.jpg',
+        'http://img1.qunarzz.com/sight/p0/1601/8f/8f4871e82d670ece90.water.jpg_r_800x800_d315577c.jpg']
+    }
+  },
+  methods: {
+    handleBannerClick () {
+      this.showGallary = true
+    },
+    handleGallaryClose () {
+      this.showGallary = false
+    }
+  }
 }
 
 </script>

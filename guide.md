@@ -698,3 +698,91 @@ div.banner
       font-size .24rem
       .banner-icon
         font-size .24rem
+
+
+
+9-2 共用图片画廊组件拆分
+webpack.bass.config
+  alias： common
+Banner.vue import CommonGallary from 'common/gallary/Gallary
+div
+  div.banner @click handleBannerClick /div
+  common-gallary :imgs=imgs/common-gallary v-show showGallary @close handleGallaryColse/common-gallary
+  
+data () {
+  return {
+    showGallary,
+    imgs: []
+  }
+}
+methods: {
+  handleBannerClick () {
+    this.showGallary = true
+  },
+  handleGallaryColse () {
+    this.showGallary = false
+  }
+}
+src/common/gallary/Gallary.vue
+name: CommonGallary
+div.container @click handleGallaryClick
+  div.wrapper
+    swiper :options="swiperOptions
+      swiper-slide v-for item,index in imgs :keyindex
+        img.gallary-img :src item
+      /swiper-slide
+      div.swiper-pagination slot pagination
+    /swiper 
+
+  /div
+/div
+props: {
+  imgs: {
+    type: Array,
+    default () {
+      return []
+    }
+  }
+}
+data () {
+  return {
+    swiperOptions: {
+      pagination: .swiper-pagination
+      paginationType: 'fraction
+      重新显示计算宽度有问题
+      observeParents: true
+      observe true
+    }
+  }
+}
+methods {
+  handleGallaryClick () {
+    this.$emit('close', )
+  }
+}
+
+swiper4 www.swiper.com.cn/3
+.container >>> .swiper-container
+  overflow: inhret
+.container
+  diplayflex
+  flex-direction coloumn
+  justify-content center
+  z-index99
+  position: fixed
+  left0
+  right0
+  top0
+  bottom0
+  background #000
+  .wrapper
+    //overflow:hidden
+    height0
+    width100%
+    padding-bottom 100%
+    background :#fff
+    .gallary-img
+      width 100%
+    .swiper-pagnation
+      color: #fff
+      bottom: -1rem
