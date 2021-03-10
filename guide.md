@@ -883,3 +883,66 @@ div.content /div
   deactivated () {
     window.removeEventListener('scroll', this.handleScroll)
   }
+
+9-5 递归组件实现详情列表
+detail/components/List.vue
+div
+  div.item v-for item,index of list :key index
+    div.item-title
+      span.item-title-icon /span
+      {{ item.title }}
+    /div  
+    div.item-children v-if item.children 
+      detail-list :list item.children /detail-list
+    /div
+  /div
+
+
+/div
+
+props {
+  list: Array
+}
+
+.item-title-icon {
+  position relative
+  left .06rem
+  top .06rem
+  display inline-block
+  width .36rem
+  height .36rem
+  background: url() 0 -.45rem no-repeat
+  margin-right ,1rem
+  background-size .4rem 3rem
+}
+.item-title {
+  line-height: .8rem
+  font-size .32rem
+  padding 0 .2rem
+}
+.item-chilren
+  padding 0 .2rem
+
+Detail.vue 
+import DetailList from './components/List
+
+div.content
+  detail-list :list list
+
+  /detail-list
+/div
+
+data () {
+  return {
+    list: [
+      {title: 成人票, children: [{title: '成人三馆联票' children: [{title: '成人三馆联票-某一连锁销售'}]}]},
+      {title: 学生票, children: [{title: '成人三馆联票' children: [{title: '成人三馆联票-某一连锁销售'}]}]},
+      {title: 儿童票, children: [{title: '成人三馆联票' children: [{title: '成人三馆联票-某一连锁销售'}]}]},
+      {title: 特惠票, children: [{title: '成人三馆联票' children: [{title: '成人三馆联票-某一连锁销售'}]}]},
+    ]
+  }
+}
+
+detail/components/Header.vue
+.header-fixed
+  z-index 2
