@@ -946,3 +946,58 @@ data () {
 detail/components/Header.vue
 .header-fixed
   z-index 2
+
+9-6 detail-ajax 动态获取详情页面数据
+/staic/mock/detail.json
+
+pages/detail/Detail.vue
+detail-banner :sightName sightName :bannerImg bannerImg :bannerImgs gallaryImgs
+
+data () {
+  return {
+    sightName: '',
+    bannerImg: '',
+    gallaryImg: [],
+    list: []
+  }
+}
+methods: {
+  getDetailInfo () {
+    //axios.get('api/detail.json?id=' + this.$route.params.id)
+    axios.get('api/detail.json', {
+      params: {
+        id: this.$route.params.id
+      }
+    }).then(this.handleGetDataSucc)
+  },
+  handleGetDataSucc (resp) {
+    resp = resp.data
+    if(resp.ret && resp.data) {
+      const {sightName, bannerImg, gallaryImg,categoryList } = resp.data
+      this.sightName = sightName
+      this.bannerImg = bannerImg
+      this.gallaryImg = gallaryImg
+      this.list =categoryList
+    }
+  }
+},
+mounted () {
+  this.getDetailInfo()
+},
+
+detail/Banner.vue
+props: {
+  sightName: String,
+  bannerImg String
+  bannerImgs Array
+}
+delete data imgs 
+
+App.vue
+假设详情页面不去做缓存
+keep-alive exclude="Detail"  <router-view/> /keep-alive
+
+拖动页面互相一项
+scrollBehavior() {
+  return {x: 0, y: 0}
+}
