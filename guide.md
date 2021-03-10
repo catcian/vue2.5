@@ -644,3 +644,57 @@ Alphabet 截流 8ms
 new Bscroll(this.$refs.wrapper, {
   click: true
 })
+
+9-1 详情页面 动态路由 banner 
+Recommend.vue
+ul> router-link tag='li' :to="/detail“ + "item.id'
+
+router.js
+import Detail from '@page/detail/Detail.vue
+{
+  path:'/detail/:id',
+  name: 'Detail',
+  component: Detail
+}
+
+轮播 / 标题渐隐渐显 / 二级列表
+src/pages/detail/componens/Banner.vue
+
+div.banner
+  img.banner-img src=
+  div.banner-info
+    div.banner-title /div
+    div.banner-number span.iconfont.banner-icon 39 /div
+  /div
+/div
+
+.banner
+  position relative
+  overflow: hidden
+  height: 0
+  padding-bottom: 55%
+  .banner-img
+    width: 100%
+  .banner-info
+    display flex
+    position: absolute
+    left0
+    right 0
+    bottom 0
+    line-height .6rem
+    color#fff
+    background-image linear-gradient(top rgba(0,0,0), rgba(0,0,0,.8))
+    .banner-title
+      flex1
+      font-size .32rem
+      padding 0 .2rem
+    .banner-number
+      height .32rem
+      line-height .32rem
+      padding 0 .4rem
+      margin-top .14rem
+      border-radius .2rem
+      backgrund rgba(0,0,0,.8)
+      font-size .24rem
+      .banner-icon
+        font-size .24rem
