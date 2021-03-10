@@ -683,7 +683,7 @@ div.banner
     bottom 0
     line-height .6rem
     color#fff
-    background-image linear-gradient(top rgba(0,0,0), rgba(0,0,0,.8))
+    background linear-gradient(top rgba(0,0,0), rgba(0,0,0,.8))
     .banner-title
       flex1
       font-size .32rem
