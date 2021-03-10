@@ -874,3 +874,12 @@ div.content /div
 
 .content: 
   height:50rem
+
+9-4 对全局事件解帮
+  activated () {
+    // console.log('detail/Header.vue')
+    window.addEventListener('scroll', this.handleScroll)
+  }
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
+  }

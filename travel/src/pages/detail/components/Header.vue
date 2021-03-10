@@ -25,6 +25,7 @@ export default {
   },
   methods: {
     handleScroll () {
+      console.log('handelScroll')
       const topHeight = document.documentElement.scrollTop
       if (topHeight > 60) {
         let opacity = topHeight / 140
@@ -41,6 +42,9 @@ export default {
   activated () {
     // console.log('detail/Header.vue')
     window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 
