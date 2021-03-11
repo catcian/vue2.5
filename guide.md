@@ -1036,3 +1036,157 @@ add mounted destroyed
 2. 手机上没有doucument.documentElement.scrollTop
 || document.body.scrollTop || window.pageYOffset
 
+
+10-1 项目联调
+config/index.js
+proxyTable: {
+  '/api': {
+    target: 'http://localhost:80'
+  }
+}
+
+10-2 vue 真机测试
+mac/ifconfig
+webpack-dev-server 默认不知道ip访问
+package.json
+start: webpack-dev-server --host 0.0.0.0
+
+拖动abcd
+city/components/Alphabet.vue 
+@touchstart.prevent
+
+白屏，不支持promise
+安装npm install babel-polyfill@6.26.0 --save
+main.js
+import 'babel-polyfill'
+
+10-3 打包上线
+npm run build
+php
+htdocs/index.html
+htdocs/static
+
+不在根路径下如何做？
+localhost/project/
+前端修改
+config/index.js
+build: {
+  assetsPublicPath: '/project'
+}
+
+10-4 vue 异步组件的使用
+dist/js
+app
+manifest webpack 打包配置文件
+vendor 页面公共组件
+app 所有各页面业务逻辑代码
+
+异步组件 - app.js 至少超过1mb
+异步加载组件，按需加载。
+router/index.js
+routes: [
+  {
+    path: '/',
+    name: 'Home'
+    component: () => import('@/pages/home/Home')
+  }{
+    path: '/',
+    name: 'City'
+    component: () => import('@/pages/city/City')
+  }{
+    path: '/',
+    name: 'Detail'
+    component: () => import('@/pages/detail/Detail')
+  }
+]
+
+home/Home.vue
+componens: {
+  HomeHeader: () => import('./componens/Header')
+}
+
+
+10-5 课程总结
+不是涉及很多：自定义指令 插件 
+
+生态系统 vue-router
+路由守卫
+命名路由
+重定向
+
+vuex
+项目结构
+
+vue 服务器渲染
+
+vue 资源
+
+vue 源码
+
+webpack
+
+babel
+
+ES6
+
+11-1 vue cli4
+visual statudio code
+git checkout -b cli-upgrade
+
+npm uninstall vue-cli -g
+npm install @vue/cli@4.2.3 -g
+
+vue create new-travel
+manually 
+Babel Router Vuex CSS Pre-processors
+history n
+Stylus
+Babel ESLint /in dedicated
+save this /n
+npm run serve
+
+11-2 webpack 配置变更方式
+vscode 安装 vetur0.24.0
+package.json
+axios ^0.17.1
+better-scroll ^1.8.1
+vue-awesome-swiper ^2.6.7
+
+业务代码迁移
+main.js
+src/assets/styles
+new Vue ({
+
+})
+
+别名：
+mkdir vue.config.js
+cn.vuejs.org 生态系统
+vue cli 配置参考
+vue.config.js
+const path = require('path')
+
+module.exports = {
+  chainWebpack: (config) => {
+    config.resolve.alias
+    .set('styles', path.join(__dirname, './src/assets/styles/ '))
+    .set('@', path.join(__dirname, './src/'))
+    .set('common', path.join(__dirname, './src/common/'))
+  }
+}
+
+11-4 首页代码迁移 代理配置变更
+store router/index.js 
+App.js
+
+
+static/mock -> public/mock 
+config/index.js proxyTable -> vue.config.js devServer
+'^/api': '/mock'
+
+11-5 列表详情页面迁移
+
+
+
+
+
