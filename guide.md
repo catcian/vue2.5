@@ -1001,3 +1001,38 @@ keep-alive exclude="Detail"  <router-view/> /keep-alive
 scrollBehavior() {
   return {x: 0, y: 0}
 }
+
+9-7 详情页面 增加基础动画
+detial-animation
+common/fade/FadeAnimation.vue
+name FadeAnimation
+
+
+transition 
+  slot /slot
+/transition
+
+.v-enter, .v-leave-to
+  opacity: 0
+.v-enter-active, .v-leave-active
+  transition opacity .5s
+
+detail/components/Banner.vue
+fade-animation
+  common-gallary /common-gallary
+/fade-animation
+
+import FadeAnimation from 'common/fade/FadeAnimation
+
+components {
+  ...FadeAnimation
+}
+
+细节：
+detail/components/Header.vue
+delete activated deactivated (keep-alive)
+add mounted destroyed
+
+2. 手机上没有doucument.documentElement.scrollTop
+|| document.body.scrollTop || window.pageYOffset
+
